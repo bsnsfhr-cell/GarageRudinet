@@ -89,7 +89,8 @@
                 <a href="javascript:void(0)" onclick="navigateTo('contact')" class="nav-link transition-colors duration-300 py-2">Kontak</a>
             </div>
 
-            <button onclick="navigateTo('contact')" class="hidden md:block bg-rose-600 text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-rose-700 transition transform hover:scale-105">
+            <!-- UPDATE: WhatsApp Konsultasi Gratis -->
+            <button onclick="sendWhatsApp('Halo Garagerudinet, saya ingin konsultasi gratis mengenai kendala mobil saya.')" class="hidden md:block bg-rose-600 text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-rose-700 transition transform hover:scale-105">
                 Konsultasi Gratis
             </button>
 
@@ -225,7 +226,8 @@
                         <div>
                             <h3 class="text-4xl font-bold mb-8">Kaki-kaki & Ban (Undercarriage)</h3>
                             <p class="text-gray-400 mb-8 leading-loose">Kenyamanan berkendara sangat bergantung pada kondisi suspensi dan kaki-kaki. Kami menyediakan layanan Spooring 3D dengan akurasi laser tinggi serta Balancing untuk menghilangkan getaran pada setir di kecepatan tinggi. Penggantian shockbreaker, bushing, dan ban dari merk ternama tersedia lengkap di stok kami.</p>
-                            <button class="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-gray-200 transition">Lihat Katalog Ban</button>
+                            <!-- UPDATE: WhatsApp Katalog Ban -->
+                            <button onclick="sendWhatsApp('Halo, saya ingin menanyakan katalog ban dan ketersediaan stok di Garagerudinet.')" class="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-gray-200 transition">Lihat Katalog Ban</button>
                         </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div class="h-40 bg-gray-800 rounded-2xl flex flex-col items-center justify-center p-6 text-center">
@@ -363,7 +365,8 @@
                             <li class="flex items-center gap-3"><i data-lucide="check" class="text-green-500 w-5 h-5"></i> Cek 12 Komponen Vital</li>
                             <li class="flex items-center gap-3"><i data-lucide="check" class="text-green-500 w-5 h-5"></i> Cuci & Vacuum Standard</li>
                         </ul>
-                        <button class="w-full py-4 border-2 border-black rounded-full font-bold group-hover:bg-black group-hover:text-white transition">Pilih Paket</button>
+                        <!-- UPDATE: WhatsApp Booking Paket 1 -->
+                        <button onclick="sendWhatsApp('Halo Garagerudinet, saya ingin booking paket: Light Maintenance (Rp 550.000)')" class="w-full py-4 border-2 border-black rounded-full font-bold group-hover:bg-black group-hover:text-white transition">Pilih Paket</button>
                     </div>
 
                     <!-- Paket 2 - Unggulan -->
@@ -381,7 +384,8 @@
                             <li class="flex items-center gap-3"><i data-lucide="check" class="text-rose-500 w-5 h-5"></i> Spooring & Balancing</li>
                             <li class="flex items-center gap-3"><i data-lucide="check" class="text-rose-500 w-5 h-5"></i> Servis Rem 4 Roda</li>
                         </ul>
-                        <button class="w-full py-4 bg-rose-600 rounded-full font-bold hover:bg-rose-700 transition">Booking Sekarang</button>
+                        <!-- UPDATE: WhatsApp Booking Paket 2 -->
+                        <button onclick="sendWhatsApp('Halo Garagerudinet, saya ingin booking paket unggulan: Performance Plus (Rp 1.450.000)')" class="w-full py-4 bg-rose-600 rounded-full font-bold hover:bg-rose-700 transition">Booking Sekarang</button>
                     </div>
 
                     <!-- Paket 3 -->
@@ -397,7 +401,8 @@
                             <li class="flex items-center gap-3"><i data-lucide="check" class="text-green-500 w-5 h-5"></i> Kuras Radiator Coolant</li>
                             <li class="flex items-center gap-3"><i data-lucide="check" class="text-green-500 w-5 h-5"></i> Penggantian Busi Iridium</li>
                         </ul>
-                        <button class="w-full py-4 border-2 border-black rounded-full font-bold group-hover:bg-black group-hover:text-white transition">Pilih Paket</button>
+                        <!-- UPDATE: WhatsApp Booking Paket 3 -->
+                        <button onclick="sendWhatsApp('Halo Garagerudinet, saya ingin booking paket besar: Total Revival (Rp 3.800.000)')" class="w-full py-4 border-2 border-black rounded-full font-bold group-hover:bg-black group-hover:text-white transition">Pilih Paket</button>
                     </div>
                 </div>
             </div>
@@ -435,20 +440,21 @@
                     </div>
 
                     <div class="bg-white p-12 rounded-[3rem] shadow-xl border border-gray-100" data-aos="fade-left">
-                        <form class="space-y-6">
+                        <!-- UPDATE: Ditambahkan ID pada form dan onsubmit -->
+                        <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-xs font-black uppercase tracking-widest text-gray-400 mb-2">Nama</label>
-                                    <input type="text" class="w-full bg-gray-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-rose-500 outline-none" placeholder="Contoh: Budi Santoso">
+                                    <input id="formName" type="text" required class="w-full bg-gray-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-rose-500 outline-none" placeholder="Contoh: Budi Santoso">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-black uppercase tracking-widest text-gray-400 mb-2">WhatsApp</label>
-                                    <input type="tel" class="w-full bg-gray-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-rose-500 outline-none" placeholder="08xx xxxx xxxx">
+                                    <input id="formWA" type="tel" required class="w-full bg-gray-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-rose-500 outline-none" placeholder="08xx xxxx xxxx">
                                 </div>
                             </div>
                             <div>
                                 <label class="block text-xs font-black uppercase tracking-widest text-gray-400 mb-2">Mobil & Keluhan</label>
-                                <textarea rows="5" class="w-full bg-gray-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-rose-500 outline-none" placeholder="Sebutkan jenis mobil dan masalah yang dirasakan..."></textarea>
+                                <textarea id="formMessage" rows="5" required class="w-full bg-gray-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-rose-500 outline-none" placeholder="Sebutkan jenis mobil dan masalah yang dirasakan..."></textarea>
                             </div>
                             <button type="submit" class="w-full bg-black text-white py-5 rounded-2xl font-bold text-lg hover:bg-gray-800 transition shadow-lg shadow-gray-200">Kirim Jadwal Servis</button>
                         </form>
@@ -476,13 +482,39 @@
     </footer>
 
     <script>
+        // CONFIGURATION: Ganti nomor ini dengan nomor WhatsApp tujuan (format internasional tanpa +)
+        const WHATSAPP_NUMBER = "6281234567890"; 
+
         // AOS Animation
         AOS.init({ duration: 1000, once: true });
         lucide.createIcons();
 
+        /**
+         * Global function to send text to WhatsApp
+         */
+        function sendWhatsApp(message) {
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        /**
+         * Logic to handle the contact form submission
+         */
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('formName').value;
+            const wa = document.getElementById('formWA').value;
+            const message = document.getElementById('formMessage').value;
+            
+            const fullMessage = `Halo Garagerudinet, saya ingin membuat jadwal servis:\n\n*Nama:* ${name}\n*WA:* ${wa}\n*Keluhan:* ${message}`;
+            
+            sendWhatsApp(fullMessage);
+        }
+
         // Multi-Page Navigation Logic
         function navigateTo(pageId) {
-            // Update Visibility
             const pages = document.querySelectorAll('.page-content');
             pages.forEach(page => {
                 page.classList.remove('active');
@@ -491,19 +523,15 @@
                 }
             });
 
-            // Update Nav Styles
             const links = document.querySelectorAll('.nav-link');
             links.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('onclick').includes(`'${pageId}'`)) {
+                if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(`'${pageId}'`)) {
                     link.classList.add('active');
                 }
             });
 
-            // Reset Scroll
             window.scrollTo(0, 0);
-
-            // Close Mobile Menu if open
             document.getElementById('mobile-overlay').classList.add('hidden');
         }
 
@@ -515,10 +543,8 @@
         mobileBtn.addEventListener('click', () => mobileOverlay.classList.remove('hidden'));
         closeBtn.addEventListener('click', () => mobileOverlay.classList.add('hidden'));
 
-        // Handle Active Link on Start
         window.onload = () => navigateTo('home');
     </script>
 </body>
 </html>
-
 
